@@ -20,10 +20,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(422).json({ errors: errors.array() });
 
       const { firstName, lastName } = req.body;
-      return res.status(200).send({
+      return res.status(200).json({
         message: `${firstName.toUpperCase()} ${lastName.toUpperCase()}`,
       });
     default:
-      return res.status(401).send({ message: "Not implemented yet" });
+      return res.status(401).json({ message: "Not implemented yet" });
   }
 };
